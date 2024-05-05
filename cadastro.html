@@ -13,7 +13,7 @@
   <main>
     <div class="login-container">
       <img src="img/cadastroNovo.jpg" alt="Fashion" class="login-image">
-      <form class="login-form" action="cadastro_processamento.php" method="post">
+      <form class="login-form" onsubmit="redirectToMainPage(); return false;">
         <h1>Cadastro</h1>
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" placeholder="Nome" required>
@@ -43,6 +43,12 @@
       </form>
     </div>
   </main>
+
+  <script>
+    function redirectToMainPage() {
+      window.location.href = "index.html";
+    }
+  </script>
 
 </body>
 </html>

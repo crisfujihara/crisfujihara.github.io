@@ -67,10 +67,12 @@ body {
 .login-image {
     display: block;
     width: 100%;
-    max-width: 300px;
+    max-width: 200px; /* Ajuste conforme necessário */
     margin: 0 auto 20px; /* Isso centraliza a imagem horizontalmente e adiciona um espaço abaixo */
   }
   
+/* Adicione essas regras ao seu arquivo styles.css */
+
 /* Estilo para rótulos */
 .login-form label {
     display: block;
