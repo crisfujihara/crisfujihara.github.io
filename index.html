@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MODA GEEK</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <img src="img/img2.webp" alt="Fashion" class="login-image">
+    <form class="login-form" onsubmit="redirectToMainPage(); return false;">
+      <h1>Login - MODA</h1>
+      <input type="email" placeholder="Email" >
+      <input type="password" placeholder="Senha" >
+      <button type="submit">Entrar</button>
+      <p class="signup-link">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </form>
+  </div>
+
+  <script>
+    function redirectToMainPage() {
+      window.location.href = "principal.html";
+    }
+  </script>
+</body>
+</html>

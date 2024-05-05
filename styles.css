@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form {
+    text-align: center;
+  }
+  
+  .login-form h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 14px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  .signup-link {
+    margin-top: 15px;
+  }
+  
+  .signup-link a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+
+.login-image {
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Ajuste conforme necessário */
+    margin: 0 auto 20px; /* Isso centraliza a imagem horizontalmente e adiciona um espaço abaixo */
+  }
+  
+/* Adicione essas regras ao seu arquivo styles.css */
+
+/* Estilo para rótulos */
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para campos de entrada de texto e seleção */
+  .login-form input[type="text"],
+  .login-form input[type="email"],
+  .login-form input[type="password"],
+  .login-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  }
+  
+ 
+  .login-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para o link de login */
+  .login-link {
+    margin-top: 15px;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  
