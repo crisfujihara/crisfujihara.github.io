@@ -68,7 +68,7 @@ body {
     display: block;
     width: 100%;
     max-width: 200px; /* Ajuste conforme necessário */
-    margin: 0 auto 20px; /* Isso centraliza a imagem horizontalmente e adiciona um espaço abaixo */
+    margin: 0 auto 10px; /* Isso centraliza a imagem horizontalmente e adiciona um espaço abaixo */
   }
   
 /* Adicione essas regras ao seu arquivo styles.css */
@@ -112,4 +112,18 @@ body {
     text-decoration: underline;
   }
   
-  
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.cadastro-image {
+  display: block;
+  width: 100%;
+  max-width: 200px; /* Ajuste conforme necessário */
+  margin: 10px auto; /* Centraliza a imagem horizontalmente com espaço acima e abaixo */
+  padding-top: 10px; /* Adiciona espaço adicional acima da imagem */
+}
