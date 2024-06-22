@@ -33,46 +33,84 @@ nav ul li a {
 
 .main-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
   padding: 20px;
 }
 
-.news-section {
-  flex: 2;
-}
-
-.news-section h2 {
-  color: #333;
-}
-
-.news-section article {
-  margin-bottom: 30px;
-}
-
-.news-section article h3 {
-  color: #333;
-}
-
-.news-section article p {
-  color: #666;
-}
-
-.news-section article img {
+.login-container {
   width: 100%;
-  max-width: 300px;
-  display: block;
-  margin-bottom: 10px;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centraliza o conteúdo dentro do container */
 }
 
-.news-section article a {
+.cadastro-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
   color: #333;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.login-form input {
+  width: calc(100% - 22px); /* Considera o padding de 10px em cada lado */
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #45a049;
+}
+
+.login-link {
+  margin-top: 10px;
+}
+
+.login-link a {
+  color: #4CAF50;
   text-decoration: none;
 }
 
-.sidebar {
-  flex: 1;
-  background-color: #ddd;
-  padding: 10px;
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  color: #333;
+}
+
+#searchResult {
+  margin-top: 10px;
+  color: #333;
 }
 
 footer {
@@ -81,4 +119,3 @@ footer {
   text-align: center;
   padding: 10px;
 }
-
