@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- Meta tags básicas -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brilho Verde: Moda Sustentável</title>
+  <!-- Link para o arquivo de estilos CSS -->
   <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
+  <!-- Cabeçalho da página -->
   <header>
     <h1>Brilho Verde: Moda Sustentável com Estilo Sofisticado</h1>
     <br>
+    <!-- Navegação principal -->
     <nav>
       <ul>
         <li><a href="principal.html">Início</a></li>
@@ -24,10 +28,13 @@
     </nav>
   </header>
   
+  <!-- Conteúdo principal -->
   <div class="main-content">
     <section class="form-section">
       <div class="login-container">
+        <!-- Imagem ilustrativa ao lado do formulário -->
         <img src="img/cadastroNovo.jpg" alt="Fashion" class="cadastro-image">
+        <!-- Formulário de cadastro -->
         <form class="login-form" onsubmit="handleFormSubmit(); return false;">
           <h1>Cadastro</h1>
           <label for="id">ID:</label>
@@ -49,6 +56,7 @@
         <br>
         <h2>Gerenciamento de Usuários</h2>
         <br> <br>
+        <!-- Campo para exclusão de usuário por ID -->
         <label for="userId">ID do Usuário (para exclusão):</label>
         <input type="text" id="userId" placeholder="ID do Usuário">
         <br> <br>
@@ -58,6 +66,7 @@
         <button onclick="clearAllUsers()">Excluir Todos os Usuários</button>
 
         <br><br>
+        <!-- Campos para pesquisa de usuários -->
         <label for="searchAttribute">Pesquisar por:</label>
         <select id="searchAttribute">
           <option value="id">ID</option>
@@ -69,10 +78,12 @@
         <br> <br>
         <button onclick="handleSearchUser()">Pesquisar</button>
         <br> <br>
+        <!-- Div para exibir os resultados da pesquisa -->
         <div id="searchResult"></div>
         
         <br> <br>
         <h2>Usuários Cadastrados</h2>
+        <!-- Tabela para exibir todos os usuários cadastrados -->
         <table id="userTable">
           <thead>
             <tr>
@@ -89,11 +100,14 @@
     </section>
   </div>
   
+  <!-- Rodapé da página -->
   <footer>
     <p>&copy; 2024 @ModaSustentável. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Scripts JavaScript -->
   <script>
+    // Função para salvar dados no localStorage
     function saveData() {
       const id = document.getElementById('id').value;
       const date = document.getElementById('date').value;
@@ -108,6 +122,7 @@
       displayUsers();
     }
 
+    // Função para limpar o formulário
     function clearForm() {
       document.getElementById('id').value = '';
       document.getElementById('date').value = '';
@@ -115,6 +130,7 @@
       document.getElementById('email').value = '';
     }
 
+    // Função para lidar com o envio do formulário
     function handleFormSubmit() {
       saveData();
       clearForm();
@@ -122,10 +138,12 @@
       redirectToMainPage();
     }
 
+    // Função para redirecionar para a página principal
     function redirectToMainPage() {
       window.location.href = "index.html";
     }
 
+    // Função para lidar com a exclusão de um usuário específico
     function handleDeleteUser() {
       const userId = document.getElementById('userId').value;
       if (userId) {
@@ -135,6 +153,7 @@
       }
     }
 
+    // Função para excluir um usuário específico
     function deleteUser(userId) {
       let users = JSON.parse(localStorage.getItem('users')) || [];
       const index = users.findIndex(user => user.id === userId);
@@ -148,17 +167,20 @@
       }
     }
 
+    // Função para excluir todos os usuários
     function clearAllUsers() {
       localStorage.removeItem('users');
       alert('Todos os usuários foram excluídos!');
       displayUsers();
     }
 
+    // Função para buscar usuários com base em um atributo específico
     function searchUser(attribute, value) {
       let users = JSON.parse(localStorage.getItem('users')) || [];
       return users.filter(user => user[attribute] === value);
     }
 
+    // Função para buscar e exibir usuários
     function searchAndDisplayUser() {
       const attribute = document.getElementById('searchAttribute').value;
       const value = document.getElementById('searchValue').value;
@@ -177,10 +199,12 @@
       }
     }
 
+    // Função para lidar com a pesquisa de usuários
     function handleSearchUser() {
       searchAndDisplayUser();
     }
 
+    // Função para exibir todos os usuários na tabela
     function displayUsers() {
       let users = JSON.parse(localStorage.getItem('users')) || [];
       const userTableBody = document.getElementById('userTable').querySelector('tbody');
@@ -196,6 +220,7 @@
       });
     }
 
+    // Executa ao carregar a página para exibir os usuários salvos
     window.onload = function() {
       displayUsers();
     }
