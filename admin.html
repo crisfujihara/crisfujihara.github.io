@@ -49,18 +49,15 @@
         <br>
         <h2>Gerenciamento de Usuários</h2>
         <br> <br>
-        <label for="userId">ID do Usuário (para exclusão):</label>
-        <input type="text" id="userId" placeholder="ID do Usuário">
+        <label for="searchAttribute">Pesquisar por:</label>
+        <select id="searchAttribute">
+          <option value="id">ID</option>
+          <option value="date">Data</option>
+          <option value="name">Nome</option>
+          <option value="email">E-mail</option>
+        </select>
+        <input type="text" id="searchValue" placeholder="Valor">
         <br> <br>
-        <button onclick="handleDeleteUser()">Excluir Usuário</button>
-
-        <br><br>
-        <button onclick="clearAllUsers()">Excluir Todos os Usuários</button>
-
-        <br><br>
-        <label for="searchEmail">Pesquisar Usuário pelo E-mail:</label>
-        <br> <br>
-        <input type="email" id="searchEmail" placeholder="E-mail">
         <button onclick="handleSearchUser()">Pesquisar Usuário</button>
         <br> <br>
         <div id="searchResult"></div>
@@ -118,21 +115,31 @@
       alert('Todos os usuários foram excluídos!');
     }
 
-    function searchUser(email) {
+    function searchUser(attribute, value) {
       let users = JSON.parse(localStorage.getItem('users')) || [];
-      return users.find(user => user.email === email);
+      return users.filter(user => user[attribute] === value);
     }
 
     function searchAndDisplayUser() {
-      const email = document.getElementById('searchEmail').value;
-      const user = searchUser(email);
+      const attribute = document.getElementById('searchAttribute').value;
+      const value = document.getElementById('searchValue').value;
+      
+      const users = searchUser(attribute, value);
       
       const resultDiv = document.getElementById('searchResult');
-      if (user) {
-        resultDiv.innerHTML = `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}`;
+      resultDiv.innerHTML = '';
+      
+      if (users.length > 0) {
+        users.forEach(user => {
+          resultDiv.innerHTML += `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}<br>`;
+        });
       } else {
-        resultDiv.innerHTML = 'Usuário não encontrado.';
+        resultDiv.innerHTML = 'Nenhum usuário encontrado.';
       }
+    }
+
+    function handleSearchUser() {
+      searchAndDisplayUser();
     }
   </script>
 
