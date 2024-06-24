@@ -54,11 +54,11 @@
         <br>
         <h2>Gerenciamento de Usuários</h2>
         <br> <br>
-        <!-- Campo para exclusão de usuário por ID -->
-        <label for="userId">ID do Usuário (para exclusão):</label>
-        <input type="text" id="userId" placeholder="ID do Usuário">
+        <!-- Campo para exclusão de usuário por E-mail -->
+        <label for="userEmail">E-mail do Usuário (para exclusão):</label>
+        <input type="email" id="userEmail" placeholder="E-mail do Usuário">
         <br> <br>
-        <button onclick="handleDeleteUser()">Excluir Usuário</button>
+        <button onclick="handleDeleteUserByEmail()">Excluir Usuário</button>
 
         <br><br>
         <button onclick="clearAllUsers()">Excluir Todos os Usuários</button>
@@ -83,7 +83,6 @@
         <table id="userTable">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Data</th>
               <th>Nome</th>
               <th>Email</th>
@@ -141,20 +140,20 @@
       window.location.href = "index.html";
     }
 
-    // Função para lidar com a exclusão de um usuário específico
-    function handleDeleteUser() {
-      const userId = document.getElementById('userId').value;
-      if (userId) {
-        deleteUser(userId);
+    // Função para lidar com a exclusão de um usuário específico por e-mail
+    function handleDeleteUserByEmail() {
+      const userEmail = document.getElementById('userEmail').value;
+      if (userEmail) {
+        deleteUserByEmail(userEmail);
       } else {
-        alert('Por favor, insira um ID de usuário válido.');
+        alert('Por favor, insira um e-mail de usuário válido.');
       }
     }
 
-    // Função para excluir um usuário específico
-    function deleteUser(userId) {
+    // Função para excluir um usuário específico por e-mail
+    function deleteUserByEmail(userEmail) {
       let users = JSON.parse(localStorage.getItem('users')) || [];
-      const index = users.findIndex(user => user.id == userId);
+      const index = users.findIndex(user => user.email === userEmail);
       if (index !== -1) {
         users.splice(index, 1);
         localStorage.setItem('users', JSON.stringify(users));
@@ -180,29 +179,28 @@
 
     // Função para buscar e exibir usuários
     function searchAndDisplayUser() {
-  const attribute = document.getElementById('searchAttribute').value;
-  const value = document.getElementById('searchValue').value;
+      const attribute = document.getElementById('searchAttribute').value;
+      const value = document.getElementById('searchValue').value;
 
-  // Verifica se o valor de pesquisa não está vazio
-  if (value.trim() === '') {
-    alert('Por favor, insira um valor para pesquisar.');
-    return;
-  }
+      // Verifica se o valor de pesquisa não está vazio
+      if (value.trim() === '') {
+        alert('Por favor, insira um valor para pesquisar.');
+        return;
+      }
 
-  const users = searchUser(attribute, value);
+      const users = searchUser(attribute, value);
 
-  const resultDiv = document.getElementById('searchResult');
-  resultDiv.innerHTML = '';
+      const resultDiv = document.getElementById('searchResult');
+      resultDiv.innerHTML = '';
 
-  if (users.length > 0) {
-    users.forEach(user => {
-      resultDiv.innerHTML += `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}<br>`;
-    });
-  } else {
-    resultDiv.innerHTML = 'Nenhum usuário encontrado.';
-  }
-}
-
+      if (users.length > 0) {
+        users.forEach(user => {
+          resultDiv.innerHTML += `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}<br>`;
+        });
+      } else {
+        resultDiv.innerHTML = 'Nenhum usuário encontrado.';
+      }
+    }
 
     // Função para lidar com a pesquisa de usuários
     function handleSearchUser() {
@@ -216,7 +214,6 @@
       userTableBody.innerHTML = '';
       users.forEach(user => {
         let row = `<tr>
-                    <td>${user.id}</td>
                     <td>${user.date}</td>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
