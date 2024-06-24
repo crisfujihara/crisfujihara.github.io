@@ -67,7 +67,6 @@
         <!-- Campos para pesquisa de usuários -->
         <label for="searchAttribute">Pesquisar por:</label>
         <select id="searchAttribute">
-          <option value="id">ID</option>
           <option value="name">Nome</option>
           <option value="email">E-mail</option>
         </select>
@@ -181,22 +180,29 @@
 
     // Função para buscar e exibir usuários
     function searchAndDisplayUser() {
-      const attribute = document.getElementById('searchAttribute').value;
-      const value = document.getElementById('searchValue').value;
-      
-      const users = searchUser(attribute, value);
-      
-      const resultDiv = document.getElementById('searchResult');
-      resultDiv.innerHTML = '';
-      
-      if (users.length > 0) {
-        users.forEach(user => {
-          resultDiv.innerHTML += `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}<br>`;
-        });
-      } else {
-        resultDiv.innerHTML = 'Nenhum usuário encontrado.';
-      }
-    }
+  const attribute = document.getElementById('searchAttribute').value;
+  const value = document.getElementById('searchValue').value;
+
+  // Verifica se o valor de pesquisa não está vazio
+  if (value.trim() === '') {
+    alert('Por favor, insira um valor para pesquisar.');
+    return;
+  }
+
+  const users = searchUser(attribute, value);
+
+  const resultDiv = document.getElementById('searchResult');
+  resultDiv.innerHTML = '';
+
+  if (users.length > 0) {
+    users.forEach(user => {
+      resultDiv.innerHTML += `Usuário encontrado: ${user.name}, Data: ${user.date}, ID: ${user.id}<br>`;
+    });
+  } else {
+    resultDiv.innerHTML = 'Nenhum usuário encontrado.';
+  }
+}
+
 
     // Função para lidar com a pesquisa de usuários
     function handleSearchUser() {
